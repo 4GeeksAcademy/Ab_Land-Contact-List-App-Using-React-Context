@@ -12,7 +12,11 @@ export const initialStore=()=>{
         title: "Do my homework",
         background: null,
       }
-    ]
+    ],
+    contacts:[],
+    slug:'Ab_4GeekAPI',
+    delete:true
+
   }
 }
 
@@ -26,6 +30,16 @@ export default function storeReducer(store, action = {}) {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
+
+    case 'load-contacts': 
+    return {... store,
+      contacts:action.payload};
+    
+      case 'delete':
+        return{... store, delete:!store.delete};
+
+
+
     default:
       throw Error('Unknown action.');
   }    

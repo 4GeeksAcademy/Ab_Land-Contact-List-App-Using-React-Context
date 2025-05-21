@@ -101,7 +101,7 @@ export const ContactForm = ({ name = '', phone = '', email = '', address = '', i
                     onChange={(e) => setAddress(e.target.value)} value={contactAddress} />
             </div>
 
-            <button className='btn btn-primary col-12 mt-2 mb-1' onClick={() => { handleSave(id) }}> Save Contact</button>
+            <button className='btn btn-primary col-12 mt-2 mb-1' onClick={(e) => {e.preventDefault(); handleSave(id); }}> Save Contact</button>
 
         </form>
     )
